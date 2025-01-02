@@ -3,6 +3,7 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 
 
 # Template
+```
 #include <iostream>
 
 using namespace std;
@@ -21,3 +22,4 @@ int main()
 
 	// TODO: Write your algorithm here.
 }
+```
