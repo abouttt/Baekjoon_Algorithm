@@ -1,37 +1,40 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
-#include <string>
 
 using namespace std;
 
-#define FAST_IO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+inline void FastIO()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
 
 int main()
 {
-	FAST_IO;
+	FastIO();
 
 	int n, k;
 	cin >> n >> k;
 
-	vector<int> a(n);
-	for (int i = 0; i < n; i++)
+	vector<int> v(n);
+	for (int& n : v)
 	{
-		cin >> a[i];
+		cin >> n;
 	}
 
 	int sum = 0;
 	for (int i = 0; i < k; i++)
 	{
-		sum += a[i];
+		sum += v[i];
 	}
 
 	int ret = sum;
-	for (int i = k; i < n; i++)
+	for (int i = k; i < v.size(); i++)
 	{
-		sum -= a[i - k];
-		sum += a[i];
-		ret = max(ret, sum);
+		sum -= v[i - k];
+		sum += v[i];
+		ret = std::max(sum, ret);
 	}
 
 	cout << ret;
