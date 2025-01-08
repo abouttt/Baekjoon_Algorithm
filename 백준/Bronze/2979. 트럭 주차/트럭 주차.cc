@@ -1,43 +1,47 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
-#include <numeric>
-#include <string>
 
 using namespace std;
 
-#define FAST_IO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+inline void FastIO()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
 
 int main()
 {
-	FAST_IO;
+	FastIO();
 
-	int pay[3] = {};
+	int pay[3]{};
 	for (int i = 0; i < 3; i++)
 	{
 		cin >> pay[i];
 	}
 
-	int cnt[100] = {};
-	int minn = 99;
-	int maxx = 0;
+	int cnt[100]{};
+	int min = 100;
+	int max = 0;
 	for (int i = 0; i < 3; i++)
 	{
 		int start, end;
 		cin >> start >> end;
-		minn = min(minn, start);
-		maxx = max(maxx, end);
+
+		min = std::min(start, min);
+		max = std::max(end, max);
+
 		for (int j = start; j < end; j++)
 		{
 			cnt[j]++;
 		}
 	}
 
-	int total = 0;
-	for (int i = minn; i < maxx; i++)
+	int sum = 0;
+	for (int i = min; i < max; i++)
 	{
-		total += cnt[i] * pay[cnt[i] - 1];
+		sum += pay[cnt[i] - 1] * cnt[i];
 	}
 
-	cout << total;
+	cout << sum;
 }
