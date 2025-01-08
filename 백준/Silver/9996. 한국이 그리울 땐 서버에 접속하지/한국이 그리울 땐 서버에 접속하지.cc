@@ -1,16 +1,19 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
-#include <numeric>
 #include <string>
 
 using namespace std;
 
-#define FAST_IO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+inline void FastIO()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
 
 int main()
 {
-	FAST_IO;
+	FastIO();
 
 	int n;
 	cin >> n;
@@ -28,11 +31,11 @@ int main()
 		if (s.size() < p.first.size() + p.second.size())
 		{
 			cout << "NE" << '\n';
-			continue;
+            continue;
 		}
 
-		if (s.substr(0, p.first.size()) == p.first &&
-			s.substr(s.size() - p.second.size(), s.size()) == p.second)
+		if (p.first == s.substr(0, p.first.size()) &&
+			p.second == s.substr(s.size() - p.second.size(), s.size()))
 		{
 			cout << "DA" << '\n';
 		}
