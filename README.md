@@ -5,6 +5,8 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 # Template
 ```
 #include <iostream>
+#include <algorithm>
+#include <numeric>
 
 using namespace std;
 using ll = long long;
