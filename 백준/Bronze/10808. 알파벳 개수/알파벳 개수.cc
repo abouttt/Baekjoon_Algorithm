@@ -1,28 +1,31 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
-#include <numeric>
 #include <string>
 
 using namespace std;
 
-#define FAST_IO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+inline void FastIO()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
 
 int main()
 {
-	FAST_IO;
+	FastIO();
 
-	int cnt[26] = {};
 	string s;
 	cin >> s;
 
-	for (int i = 0; i < s.size(); i++)
+	vector<int> v(26, 0);
+	for (char c : s)
 	{
-		cnt[s[i] - 97]++;
+		v[c - 'a']++;
 	}
 
-	for (int i = 0; i < 26; i++)
+	for (int i : v)
 	{
-		cout << cnt[i] << ' ';
+		cout << i << ' ';
 	}
 }
