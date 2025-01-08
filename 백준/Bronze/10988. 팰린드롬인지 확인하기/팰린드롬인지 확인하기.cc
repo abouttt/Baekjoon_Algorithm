@@ -4,16 +4,22 @@
 
 using namespace std;
 
-#define FAST_IO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+inline void FastIO()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
 
 int main()
 {
-	FAST_IO;
+	FastIO();
 
 	string s;
 	cin >> s;
+
 	string rs(s);
 	reverse(s.begin(), s.end());
-	int result = s == rs;
-	cout << result;
+
+	cout << (s == rs);
 }
