@@ -1,35 +1,38 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
-#include <map>
 #include <string>
 
 using namespace std;
 
-#define FAST_IO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+inline void FastIO()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
 
 int main()
 {
-	FAST_IO;
+	FastIO();
 
-	int a[26]{};
 	string s;
 	cin >> s;
 
-	for (auto c : s)
+	int cnt[26]{};
+	for (char c : s)
 	{
-		a[c - 'A']++;
+		cnt[c - 'A']++;
 	}
 
 	bool hasOdd = false;
 	for (int i = 0; i < 26; i++)
 	{
-		if (a[i] == 0)
+		if (cnt[i] == 0)
 		{
 			continue;
 		}
 
-		if (a[i] % 2 == 1)
+		if (cnt[i] % 2 == 1)
 		{
 			if (hasOdd)
 			{
@@ -44,19 +47,19 @@ int main()
 	string ret;
 	for (int i = 25; i >= 0; i--)
 	{
-		while (a[i])
+		while (cnt[i])
 		{
-			if (a[i] % 2 == 0)
+			if (cnt[i] % 2 == 0)
 			{
 				ret.insert(ret.begin(), i + 'A');
 				ret.insert(ret.end(), i + 'A');
-				a[i] -= 2;
+				cnt[i] -= 2;
 			}
 			else
 			{
 				int mid = ret.size() / 2;
 				ret.insert(ret.begin() + mid, i + 'A');
-				a[i]--;
+				cnt[i]--;
 			}
 		}
 	}
