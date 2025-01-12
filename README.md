@@ -11,17 +11,11 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 
 using namespace std;
 using ll = long long;
-
-inline void FastIO()
-{
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
-}
+#define FAST_IO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
 int main()
 {
-	FastIO();
+	FAST_IO;
 
 	// TODO: Write your algorithm here.
 }
